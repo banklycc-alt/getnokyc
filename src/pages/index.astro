@@ -1,0 +1,209 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const cards = [
+  { id: "gnosis-pay", name: "Gnosis Pay", rating: 4.6, kyc: "Low KYC", region: "EU/UK", limit: "€150", fee: "0%", network: "Visa", highlight: "Best self-custody", badge: "top-pick" },
+  { id: "tangem-pay", name: "Tangem Pay", rating: 4.5, kyc: "Low KYC", region: "42 countries", limit: "€150", fee: "0%", network: "Visa", highlight: "Hardware wallet", badge: "verified" },
+  { id: "bleap", name: "Bleap", rating: 4.4, kyc: "Low KYC", region: "EU", limit: "€150", fee: "0%", network: "Mastercard", highlight: "Zero FX", badge: "verified" },
+  { id: "coca-wallet", name: "COCA Wallet", rating: 4.3, kyc: "No KYC tier", region: "Global", limit: "€150", fee: "1%", network: "Visa", highlight: "8% cashback", badge: "verified" },
+  { id: "kast", name: "KAST", rating: 4.2, kyc: "No KYC tier", region: "Global", limit: "€150", fee: "1-2%", network: "Visa", highlight: "Fast issuance", badge: "verified" },
+  { id: "volet", name: "Volet", rating: 4.1, kyc: "Low KYC", region: "Global", limit: "€150", fee: "2-4%", network: "Visa/MC", highlight: "Est. 2014", badge: "verified" },
+  { id: "pst-net", name: "PST.NET", rating: 4.0, kyc: "No KYC", region: "Global", limit: "$2,000/mo", fee: "3-5%", network: "Visa/MC", highlight: "High limits", badge: "verified" },
+  { id: "noones", name: "NoOnes", rating: 3.8, kyc: "No KYC", region: "Global", limit: "$200", fee: "1%", network: "Visa", highlight: "P2P built-in", badge: "verified" },
+  { id: "zarub", name: "ZARUB", rating: 3.7, kyc: "No KYC", region: "Global", limit: "$1,000/mo", fee: "3%", network: "Visa", highlight: "Apple Pay", badge: "verified" },
+  { id: "kripicard", name: "Kripicard", rating: 3.5, kyc: "No KYC", region: "Global", limit: "$2,000/mo", fee: "2%", network: "Virtual", highlight: "Instant issue", badge: "new" },
+];
+
+const scams = [
+  { name: "Vault.ist", reason: "Connected to Crypterium (in liquidation). FinTelegram warning." },
+  { name: "Pryvero.net", reason: "Withdrawal issues, 'mercenaries' narrative = scam red flag." },
+  { name: "LBM Solutions", reason: "Dev shop, not card issuer. 'They do scam' reviews." },
+];
+
+function renderStars(rating: number) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.5 ? 1 : 0;
+  const empty = 5 - full - half;
+  return '★'.repeat(full) + (half ? '½' : '') + '☆'.repeat(empty);
+}
+---
+
+<Layout title="Best No-KYC Crypto Cards 2026 | Compare Anonymous Debit Cards">
+  <!-- Hero -->
+  <section class="bg-gradient-to-b from-emerald-900/20 to-transparent py-16">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">
+        Best <span class="text-emerald-500">No-KYC</span> Crypto Cards 2026
+      </h1>
+      <p class="text-xl text-gray-400 max-w-2xl mx-auto mb-8">
+        Compare anonymous and low-verification crypto debit cards. 
+        Real tests, honest reviews. Updated February 2026.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 text-sm text-gray-500">
+        <span>✓ 10 cards tested</span>
+        <span>✓ 3 scams exposed</span>
+        <span>✓ Last updated: Feb 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick picks -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">🏆 Top Picks</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-[#1a1a1a] rounded-xl p-6 border border-emerald-500/30">
+          <span class="text-xs text-emerald-500 font-semibold">BEST SELF-CUSTODY</span>
+          <h3 class="text-xl font-bold mt-2">Gnosis Pay</h3>
+          <p class="text-gray-400 text-sm mt-2">True self-custody with Safe wallet. 2%+ cashback. Zero fees.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-500">{renderStars(4.6)}</span>
+            <a href="/reviews/gnosis-pay/" class="text-emerald-500 text-sm hover:underline">Review →</a>
+          </div>
+        </div>
+        <div class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-700">
+          <span class="text-xs text-blue-400 font-semibold">BEST FOR SECURITY</span>
+          <h3 class="text-xl font-bold mt-2">Tangem Pay</h3>
+          <p class="text-gray-400 text-sm mt-2">Hardware wallet card. Keys never leave the chip. €54.90 setup.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-500">{renderStars(4.5)}</span>
+            <a href="/reviews/tangem-pay/" class="text-emerald-500 text-sm hover:underline">Review →</a>
+          </div>
+        </div>
+        <div class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-700">
+          <span class="text-xs text-purple-400 font-semibold">BEST CASHBACK</span>
+          <h3 class="text-xl font-bold mt-2">COCA Wallet</h3>
+          <p class="text-gray-400 text-sm mt-2">Up to 8% cashback. MPC security. 40M+ merchants.</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="text-yellow-500">{renderStars(4.3)}</span>
+            <a href="/reviews/coca-wallet/" class="text-emerald-500 text-sm hover:underline">Review →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table -->
+  <section class="py-12">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">📊 Full Comparison</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-gray-700 text-gray-400 text-sm">
+              <th class="pb-4 pr-4">Card</th>
+              <th class="pb-4 pr-4">Rating</th>
+              <th class="pb-4 pr-4">KYC Level</th>
+              <th class="pb-4 pr-4">Region</th>
+              <th class="pb-4 pr-4">No-KYC Limit</th>
+              <th class="pb-4 pr-4">Top-up Fee</th>
+              <th class="pb-4 pr-4">Highlight</th>
+              <th class="pb-4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            {cards.map((card, i) => (
+              <tr class={`border-b border-gray-800 hover:bg-[#1a1a1a] transition ${i === 0 ? 'bg-emerald-900/10' : ''}`}>
+                <td class="py-4 pr-4">
+                  <div class="flex items-center gap-2">
+                    <span class="font-semibold">{card.name}</span>
+                    {card.badge === 'top-pick' && <span class="badge badge-verified text-xs">TOP PICK</span>}
+                    {card.badge === 'new' && <span class="badge badge-new text-xs">NEW</span>}
+                  </div>
+                </td>
+                <td class="py-4 pr-4">
+                  <span class="text-yellow-500 text-sm">{renderStars(card.rating)}</span>
+                  <span class="text-gray-500 text-xs ml-1">{card.rating}</span>
+                </td>
+                <td class="py-4 pr-4">
+                  <span class={`text-sm ${card.kyc === 'No KYC' ? 'text-emerald-400' : 'text-gray-400'}`}>
+                    {card.kyc}
+                  </span>
+                </td>
+                <td class="py-4 pr-4 text-sm text-gray-400">{card.region}</td>
+                <td class="py-4 pr-4 text-sm">{card.limit}</td>
+                <td class="py-4 pr-4 text-sm">{card.fee}</td>
+                <td class="py-4 pr-4 text-sm text-gray-400">{card.highlight}</td>
+                <td class="py-4">
+                  <a href={`/reviews/${card.id}/`} class="text-emerald-500 hover:text-emerald-400 text-sm">
+                    Details →
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scam Alerts -->
+  <section id="scams" class="py-12 bg-red-900/10">
+    <div class="max-w-6xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">🚨 Scam Alerts — Avoid These</h2>
+      <div class="grid md:grid-cols-3 gap-6">
+        {scams.map(scam => (
+          <div class="bg-red-950/50 border border-red-900/50 rounded-xl p-6">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="badge badge-scam">SCAM</span>
+              <h3 class="font-semibold">{scam.name}</h3>
+            </div>
+            <p class="text-gray-400 text-sm">{scam.reason}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold mb-8">❓ FAQ</h2>
+      <div class="space-y-6">
+        <details class="group">
+          <summary class="flex cursor-pointer items-center justify-between rounded-lg bg-[#1a1a1a] p-4">
+            <span class="font-medium">What is a no-KYC crypto card?</span>
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <p class="mt-2 px-4 text-gray-400">
+            A no-KYC card lets you spend crypto without providing identity documents. 
+            Most have lower limits (€150-500) without verification, with higher limits available after KYC.
+          </p>
+        </details>
+        <details class="group">
+          <summary class="flex cursor-pointer items-center justify-between rounded-lg bg-[#1a1a1a] p-4">
+            <span class="font-medium">Are no-KYC cards legal?</span>
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <p class="mt-2 px-4 text-gray-400">
+            Yes, in most jurisdictions. Low-value prepaid cards are exempt from full KYC requirements 
+            under EU's 4AMLD and similar regulations. Always check local laws.
+          </p>
+        </details>
+        <details class="group">
+          <summary class="flex cursor-pointer items-center justify-between rounded-lg bg-[#1a1a1a] p-4">
+            <span class="font-medium">Which card is best for privacy?</span>
+            <span class="transition group-open:rotate-180">▼</span>
+          </summary>
+          <p class="mt-2 px-4 text-gray-400">
+            For true privacy, choose self-custody cards like Gnosis Pay or Tangem Pay where you control 
+            the keys. For anonymity, PST.NET and NoOnes require minimal info.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-4">Ready to spend crypto privately?</h2>
+      <p class="text-gray-400 mb-8">
+        Our top pick for 2026: Gnosis Pay — self-custody, zero fees, 2%+ cashback.
+      </p>
+      <a href="/reviews/gnosis-pay/" class="btn-cta">
+        Read Gnosis Pay Review →
+      </a>
+    </div>
+  </section>
+</Layout>

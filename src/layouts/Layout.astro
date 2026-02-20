@@ -1,0 +1,91 @@
+---
+import '../styles/global.css'
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = "Find the best no-KYC and anonymous crypto debit cards. Compare features, fees, and limits. Updated for 2026." } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "GetNoKYC",
+      "url": "https://getnokyc.com",
+      "description": "Compare no-KYC crypto debit cards"
+    }
+    </script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Header -->
+    <header class="border-b border-gray-800 sticky top-0 bg-[#0f0f0f]/95 backdrop-blur-sm z-50">
+      <nav class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold text-white">
+          Get<span class="text-emerald-500">NoKYC</span>
+        </a>
+        <div class="flex gap-6 text-gray-400">
+          <a href="/" class="hover:text-white transition">Cards</a>
+          <a href="/reviews/" class="hover:text-white transition">Reviews</a>
+          <a href="#scams" class="hover:text-white transition">Scam Alerts</a>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-800 mt-20">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-semibold mb-4">GetNoKYC</h3>
+            <p class="text-gray-400 text-sm">
+              Independent comparison of no-KYC and low-KYC crypto debit cards. 
+              We test cards ourselves and report honestly.
+            </p>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="/" class="hover:text-white">Compare Cards</a></li>
+              <li><a href="/reviews/" class="hover:text-white">All Reviews</a></li>
+              <li><a href="#scams" class="hover:text-white">Scam Alerts</a></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold mb-4">Disclaimer</h3>
+            <p class="text-gray-500 text-xs">
+              This site contains affiliate links. We may earn a commission when you sign up through our links, 
+              at no extra cost to you. All opinions are our own.
+            </p>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+          © 2026 GetNoKYC. Not financial advice. Do your own research.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

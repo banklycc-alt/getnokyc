@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const reviews = [
+  { id: "gnosis-pay", name: "Gnosis Pay", rating: 4.6, badge: "TOP PICK", desc: "Best self-custody card for EU/UK" },
+  { id: "tangem-pay", name: "Tangem Pay", rating: 4.5, badge: "SECURE", desc: "Hardware wallet meets debit card" },
+  { id: "bleap", name: "Bleap", rating: 4.4, badge: "VERIFIED", desc: "Zero FX fees, USDC cashback" },
+  { id: "coca-wallet", name: "COCA Wallet", rating: 4.3, badge: "VERIFIED", desc: "Up to 8% cashback, MPC security" },
+  { id: "pst-net", name: "PST.NET", rating: 4.0, badge: "VERIFIED", desc: "True no-KYC, high limits" },
+];
+---
+
+<Layout title="Crypto Card Reviews 2026 | GetNoKYC">
+  <div class="max-w-4xl mx-auto px-4 py-12">
+    <h1 class="text-4xl font-bold mb-4">Crypto Card Reviews</h1>
+    <p class="text-gray-400 mb-12">Honest, hands-on reviews of no-KYC and low-KYC crypto debit cards.</p>
+
+    <div class="space-y-6">
+      {reviews.map(review => (
+        <a href={`/reviews/${review.id}/`} class="block bg-[#1a1a1a] rounded-xl p-6 hover:bg-[#242424] transition border border-gray-800">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="flex items-center gap-3 mb-2">
+                <h2 class="text-xl font-bold">{review.name}</h2>
+                <span class="badge badge-verified text-xs">{review.badge}</span>
+              </div>
+              <p class="text-gray-400">{review.desc}</p>
+            </div>
+            <div class="text-right">
+              <div class="text-yellow-500">★★★★★</div>
+              <div class="text-gray-500 text-sm">{review.rating}/5</div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <p class="mt-12 text-gray-500 text-sm">
+      More reviews coming soon: Volet, ZARUB, Kripicard, NoOnes...
+    </p>
+  </div>
+</Layout>
